@@ -7,9 +7,6 @@ import numpy as np
 import datetime
 import shutil
 import torch
-import torch.nn.functional as F
-import torchvision.transforms.v2 as transforms
-import matplotlib.pyplot as plt
 
 def load_image(path):
     image = np.array(Image.open(path))

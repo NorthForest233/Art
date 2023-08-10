@@ -7,6 +7,7 @@ import numpy as np
 import datetime
 import shutil
 import pandas as pd
+import torch
 
 def load_image(path):
     image = np.array(Image.open(path))
@@ -15,7 +16,7 @@ def load_image(path):
         image = image.reshape(1, *image.shape)
     elif image.ndim == 2:
         image = image.reshape(1, 1, *image.shape)
-    image = np.array(image / 255, dtype=np.float32)
+    image = torch.tensor(image / 255, dtype=torch.float32)
     return image
 
 
@@ -34,7 +35,7 @@ if __name__ == '__main__':
             content_image = load_image(os.path.join('./dataset/contents', row.content))
             style_image = load_image(os.path.join('./dataset/styles', row.style))
             mask = load_image(os.path.join('./dataset/masks', row.mask))
-            exp_name = 'SC_TRACER_{i}'
+            exp_name = f'SC_TRACER_{i}'
             output_dir = './results'
             num_epochs = 20
             output_freq = 1
