@@ -14,7 +14,7 @@ model:
     - 28
     loss_weights:
       content_weight: 1e-3
-      style_weight: 1e3
+      style_weight: 1e2
       variation_weight: 0.0
       detector_weight: 2e-3
     color_fusion:
@@ -24,7 +24,7 @@ model:
     num_augmentations: 8
     use_style_mask: false
     use_grad_mask: false
-    warmup_epochs: 0
+    warmup_epochs: 5
     extractor_config:
       target: models.VGG19Features
       params:

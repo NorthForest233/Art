@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     art = utils.instantiate_from_config(config['model'])
 
-    data = pd.read_csv('./dataset/data.csv', index_col=0, header=0, sep=',')
+    data = pd.read_csv('./dataset/dataset.csv', index_col=0, header=0, sep=',')
     for i, row in enumerate(data.itertuples(index=False)):
         if 0 <= i and i < 10:
             content_image = load_image(os.path.join('./dataset/contents', row.content))
