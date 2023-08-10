@@ -1,0 +1,37 @@
+model:
+  learning_rate: 1.0
+  target: models.Art
+  params:
+    width: 512
+    height: 384
+    content_layers:
+    - 30
+    style_layers:
+    - 0
+    - 5
+    - 10
+    - 19
+    - 28
+    loss_weights:
+      content_weight: 5e-4
+      style_weight: 500.0
+      variation_weight: 0.0
+      detector_weight: 1e-4
+    color_fusion:
+      weight: 0
+      kernel_size: 0
+      sigma: 0
+    num_augmentations: 8
+    use_style_mask: false
+    use_grad_mask: false
+    warmup_epochs: 0
+    extractor_config:
+      target: models.VGG19Features
+      params:
+        weights: "./weights/vgg19-dcbb9e9d.pth"
+    detector_config:
+      target: models.TracerModule
+      params:
+        weights: "./weights/best_model.pth"
+        criterion: 
+          target: torch.nn.L1Loss
