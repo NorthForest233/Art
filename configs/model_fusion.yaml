@@ -24,7 +24,7 @@ model:
     num_augmentations: 8
     use_style_mask: false
     use_grad_mask: false
-    warmup_epochs: 5
+    warmup_epochs: 0
     extractor_config:
       target: models.VGG19Features
       params:

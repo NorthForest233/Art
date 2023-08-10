@@ -20,7 +20,7 @@ def load_image(path):
 
 
 if __name__ == '__main__':
-    config_file = './configs/model.yaml'
+    config_file = './configs/model_fusion.yaml'
     config = OmegaConf.load(config_file)
 
     for detector in os.listdir('./detectors'):
