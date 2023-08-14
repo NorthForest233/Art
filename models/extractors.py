@@ -21,7 +21,7 @@ class GramMatrix(nn.Module):
         b, c, h, w = x.shape
         features = x.view(b, c, h * w)
         gram_matrix = torch.einsum('ijl,ikl->ijk', features, features)
-        return gram_matrix / (c * h * w)
+        return gram_matrix / (h * w)
 
 
 class StyleLoss(nn.Module):
