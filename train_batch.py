@@ -30,7 +30,7 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         '--exp_name',
-        type=int,
+        type=str,
         default=None,
         help='name of the experiment',
     )
