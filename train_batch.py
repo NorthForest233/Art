@@ -29,6 +29,12 @@ if __name__ == '__main__':
         help='path to dataset',
     )
     parser.add_argument(
+        '--exp_name',
+        type=int,
+        default=None,
+        help='name of the experiment',
+    )
+    parser.add_argument(
         '--begin',
         type=int,
         default=None,
@@ -58,15 +64,14 @@ if __name__ == '__main__':
         content_image = load_image(os.path.join(args.dataset, 'contents', row.content))
         style_image = load_image(os.path.join(args.dataset, 'styles', row.style))
         mask = load_image(os.path.join(args.dataset, 'masks', row.mask))
-        exp_name = f'SC_TRACER_{i}'
         output_dir = './results'
         num_epochs = 20
         output_freq = 1
 
         art.set_images(content_image, style_image, mask)
-        if exp_name:
+        if args.exp_name:
             output_dir = os.path.join(
-                output_dir, f'{exp_name}_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+                output_dir, f'{args.exp_name}_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
         else:
             output_dir = os.path.join(output_dir, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
         os.path.exists(output_dir) or os.mkdir(output_dir)
