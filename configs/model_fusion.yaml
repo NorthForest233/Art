@@ -16,7 +16,7 @@ model:
       content_weight: 1e-2
       style_weight: 1.0
       variation_weight: 0.0
-      detector_weight: 1e-4 # 1e-2
+      detector_weight: 1e-2
     color_fusion:
       weight: 1.0
       kernel_size: 75
@@ -34,4 +34,4 @@ model:
       params:
         weights: "./weights/best_model.pth"
         criterion: 
-          target: torch.nn.BCELoss
+          target: torch.nn.L1Loss
