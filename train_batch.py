@@ -69,10 +69,9 @@ if __name__ == '__main__':
 
         art.set_images(content_image, style_image, mask)
         if args.exp_name:
-            output_dir = os.path.join(
-                output_dir, f'{args.exp_name}_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
+            output_dir = os.path.join(output_dir, f'{args.exp_name}_{i}_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
         else:
-            output_dir = os.path.join(output_dir, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+            output_dir = os.path.join(output_dir, f'{i}_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}')
         os.path.exists(output_dir) or os.mkdir(output_dir)
         shutil.copy(args.config, os.path.join(output_dir, os.path.basename(args.config)))
         art.train(num_epochs=num_epochs,
