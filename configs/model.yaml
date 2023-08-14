@@ -13,14 +13,14 @@ model:
     - 19
     - 28
     loss_weights:
-      content_weight: 5e-4
-      style_weight: 500.0
+      content_weight: 1e-2
+      style_weight: 1.0
       variation_weight: 0.0
-      detector_weight: 1e-4
+      detector_weight: 0.0 # 1e-2
     color_fusion:
-      weight: 0
-      kernel_size: 0
-      sigma: 0
+      weight: 0.0
+      kernel_size: 75
+      sigma: 25
     num_augmentations: 8
     use_style_mask: false
     use_grad_mask: false
