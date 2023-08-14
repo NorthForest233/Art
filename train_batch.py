@@ -48,7 +48,6 @@ if __name__ == '__main__':
     )
     args = parser.parse_args()
     config = OmegaConf.load(args.config)
-    print(args.begin)
 
     for detector in os.listdir('./detectors'):
         sys.path.append(os.path.join('./detectors', detector))
@@ -61,9 +60,9 @@ if __name__ == '__main__':
     for i in range(begin, end):
         print(i)
         row = data.iloc[i]
-        content_image = load_image(os.path.join(args.dataset, 'contents', row.content))
-        style_image = load_image(os.path.join(args.dataset, 'styles', row.style))
-        mask = load_image(os.path.join(args.dataset, 'masks', row.mask))
+        content_image = load_image(os.path.join(args.dataset, 'contents', row['content']))
+        style_image = load_image(os.path.join(args.dataset, 'styles', row['style']))
+        mask = load_image(os.path.join(args.dataset, 'masks', row['mask']))
         output_dir = './results'
         num_epochs = 20
         output_freq = 1
